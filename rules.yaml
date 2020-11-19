@@ -1,0 +1,9 @@
+rules:
+- id: port-80-usage-detected
+  patterns: 
+    - pattern-inside: http.ListenAndServe(...)
+    - pattern-regex: ':80'
+  message: |
+    Usage of port 80 detected, web services should be served on port 443
+  languages: [golang]
+  severity: WARNING
